@@ -6,13 +6,12 @@
     
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self'; 
-        font-src 'self' data: fonts.gstatic.com; 
-        style-src 'self' 'unsafe-inline' fonts.googleapis.com; 
-        script-src 'self'; 
+        font-src 'self' data: fonts.gstatic.com https://ka-f.fontawesome.com; 
+        style-src 'self' 'unsafe-inline' fonts.googleapis.com https://ka-f.fontawesome.com; 
+        script-src 'self' https://kit.fontawesome.com; 
         img-src 'self' data:;
-        connect-src 'self' https://formspree.io; 
+        connect-src 'self' https://formspree.io https://ka-f.fontawesome.com; 
         form-action 'self' https://formspree.io;">
-
     <meta name="referrer-policy" content="no-referrer-when-downgrade">
     <meta name="X-Content-Type-Options" content="nosniff">
 
@@ -23,9 +22,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="Frontend/css/index.css">
+    <script src="https://kit.fontawesome.com/1a3319db48.js" crossorigin="anonymous"></script>
 
-    <script src="Frontend/js/index.js" defer></script>
+    <link rel="stylesheet" href="/pasteleria/Frontend/css/index.css">
+
+    <script src="/pasteleria/Frontend/js/index.js" defer></script>
 </head>
 <body>
 
@@ -97,10 +98,41 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> Pastelería Dulce Rincón. Todos los derechos reservados.</p>
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,0 L1440,0 L1440,50 C1200,90 960,90 720,50 C480,10 240,10 0,50 L0,0 Z"></path>
+            </svg>
+        </div>
+        
+        <div class="container footer-content">
+            <div class="footer-section footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com/tupasteleria" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://instagram.com/tupasteleria" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com/@tupasteleria" target="_blank" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section footer-info">
+                <h3>Contacto</h3>
+                <p>📍 Calle Ficticia 123, Puebla, MX</p>
+                <p>📞 +52 222 123 4567</p>
+                <p>📧 info@dulcerincon.com</p>
+            </div>
+            <div class="footer-section footer-copy">
+                <p>&copy; <span id="current-year"></span> Pastelería Dulce Rincón. Todos los derechos reservados.</p>
+                <p>Diseñado con ❤️ para ti.</p>
+            </div>
         </div>
     </footer>
-
-</body>
+    </body>
 </html>
