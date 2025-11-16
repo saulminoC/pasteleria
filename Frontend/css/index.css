@@ -1,0 +1,288 @@
+/* --- Variables Globales (Tema) --- */
+:root {
+    --color-primary: #8B4513; /* Marrón (SaddleBrown) */
+    --color-secondary: #FFF8E1; /* Crema claro (Cornsilk) */
+    --color-text: #333;
+    --color-white: #FFFFFF;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --container-width: 1100px;
+}
+
+/* --- Reseteo Básico y Estilos Globales --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Para navegación suave con anclas */
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-white);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.content-section {
+    padding: 4rem 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover, .cta-button:focus {
+    background-color: #65320d;
+    transform: translateY(-2px);
+}
+
+/* --- Header y Navegación --- */
+.header {
+    background-color: var(--color-white);
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Estilos para el menú (Móvil primero) */
+.nav-menu {
+    display: none; /* Oculto por defecto en móvil */
+    list-style: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Ajustar según altura del header */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-menu.active {
+    display: flex; /* Se muestra al hacer clic */
+}
+
+.nav-item {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+/* Botón Hamburguesa */
+.nav-toggle {
+    display: block; /* Visible solo en móvil */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+}
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary);
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+}
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
+
+/* Animación Hamburguesa (X) */
+.nav-toggle.active .hamburger { background-color: transparent; }
+.nav-toggle.active .hamburger::before { transform: rotate(45deg) translate(5px, 6px); }
+.nav-toggle.active .hamburger::after { transform: rotate(-45deg) translate(5px, -6px); }
+
+
+/* --- Sección Hero --- */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    /* Asegúrate de tener una imagen 'hero-background.jpg' en 'frontend/images/' */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/webp/prompt1-_1_.webp') no-repeat center center/cover;
+    padding: 0 5%;
+}
+
+.hero-title {
+    color: var(--color-white);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Galería (CSS Grid) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 1.5rem;
+}
+
+.gallery-item img {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* --- Formulario de Contacto --- */
+.contact-form {
+    max-width: 600px;
+    margin: 2rem auto 0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-body);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--color-primary);
+    border-color: transparent;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--color-secondary);
+    color: #555;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+/* --- Media Queries (Desktop) --- */
+@media (min-width: 768px) {
+    h1, .hero-title { font-size: 3.5rem; }
+    h2 { font-size: 2.5rem; }
+
+    /* Navegación Desktop */
+    .nav-toggle {
+        display: none; /* Ocultar hamburguesa */
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
+        border-bottom: none;
+    }
+
+    .nav-item {
+        margin: 0 0 0 1.5rem;
+    }
+
+    .nav-link:hover {
+        color: var(--color-primary);
+    }
+
+    /* Galería Desktop */
+    .gallery-grid {
+        /* Tres columnas en desktop */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero {
+        height: 90vh;
+    }
+}
