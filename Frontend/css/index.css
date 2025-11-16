@@ -8,7 +8,7 @@
     --font-body: 'Montserrat', sans-serif;
     --container-width: 1100px;
     
-    /* Nuevas variables para el Footer */
+    /* Variables para el Footer */
     --color-footer-bg: #8B4513; /* Marrón (SaddleBrown) para el footer */
     --color-footer-text: #FFF8E1; /* Crema claro para el texto del footer */
     --color-social-icon: #D2B48C; /* Un tono más claro para los iconos */
@@ -178,7 +178,7 @@ img {
     text-align: center;
     color: var(--color-white);
     /* Actualizado a .webp */
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/prompt1\ \(1\).png') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/webp/prompt1-_1_.webp') no-repeat center center/cover;
     padding: 0 5%;
 }
 
@@ -242,10 +242,6 @@ img {
     border-color: transparent;
 }
 
-/* --- Antiguo Footer (será sobreescrito) --- */
-/* Dejamos el selector vacío por si acaso, pero los nuevos estilos de abajo lo reemplazarán */
-.footer {
-}
 
 /* --- Media Queries (Desktop) --- */
 @media (min-width: 768px) {
@@ -290,7 +286,7 @@ img {
 
 /*
 =========================================
---- NUEVOS ESTILOS DEL FOOTER ---
+--- ESTILOS DEL FOOTER (ACTUALIZADOS) ---
 =========================================
 */
 .footer {
@@ -327,7 +323,7 @@ img {
 
 .footer-content {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
     justify-content: space-around;
     gap: 2rem; /* Espacio entre las secciones del footer */
     padding-bottom: 3rem; /* Espacio debajo del contenido */
@@ -338,13 +334,13 @@ img {
     color: var(--color-footer-text); /* Color para los títulos del footer */
     margin-bottom: 1rem;
     font-size: 1.3rem;
-    text-align: center; /* Centrar títulos */
+    text-align: center; /* Centrar títulos en móvil */
     width: 100%; /* Asegura que el h3 ocupe todo el ancho */
 }
 
 .footer-section {
     flex: 1; /* Permite que las secciones crezcan */
-    min-width: 250px; /* Ancho mínimo para cada sección */
+    min-width: 300px; /* Ancho mínimo para cada sección (un poco más grande) */
     padding: 1rem;
 }
 
@@ -369,7 +365,7 @@ img {
 .footer-info p {
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
-    text-align: center; /* Centrar texto de info */
+    text-align: center; /* Centrar texto de info en móvil */
 }
 
 .footer-copy {
@@ -380,6 +376,39 @@ img {
     font-size: 0.9rem;
     text-align: center;
 }
+
+/* --- NUEVOS ESTILOS PARA MAPA Y HORARIOS --- */
+
+.footer-map iframe {
+    border-radius: 8px; /* Bordes redondeados */
+    border: 2px solid var(--color-social-icon); /* Borde sutil */
+    margin-top: 1rem;
+    width: 100%; /* Asegura que ocupe todo el ancho de su contenedor */
+}
+
+.footer-hours {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Separador sutil */
+}
+
+.footer-hours h4 {
+    color: var(--color-white); /* O un color que resalte */
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    text-align: center; /* Centrar título de horarios */
+}
+
+.footer-hours p {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    text-align: center; /* Centrar horarios */
+}
+
+/* --- FIN DE NUEVOS ESTILOS --- */
+
 
 /* Ajustes para pantallas más grandes */
 @media (min-width: 768px) {
@@ -399,9 +428,24 @@ img {
     .footer-info p {
         text-align: left; /* Alinear texto de info a la izquierda */
     }
+    
+    .footer-hours h4,
+    .footer-hours p {
+        text-align: left; /* Alinear horarios a la izquierda en desktop */
+    }
 
+    /*
+    Esto es un ajuste menor,
+    el 'width: 30%' original hacía que 3 columnas se vieran bien.
+    Como el mapa, social e info son 3 secciones, este estilo
+    debería funcionar perfecto para las 3 columnas.
+    */
     .footer-section {
-        flex: initial; /* Reinicia el flex para mayor control */
-        width: 30%; /* Da un ancho específico a las columnas */
+        flex: 1; /* Dejamos que flexbox maneje el ancho */
+        max-width: 32%; /* Máximo de 32% para que quepan 3 */
+    }
+
+    .footer-copy {
+        max-width: 100%; /* Aseguramos que el copy ocupe todo */
     }
 }
